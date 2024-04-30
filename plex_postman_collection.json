@@ -1,0 +1,2195 @@
+{
+    "auth": {
+        "type": "apikey",
+        "apikey": [
+            {
+                "key": "key",
+                "value": "X-Plex-Token",
+                "type": "string"
+            },
+            {
+                "key": "value",
+                "value": "{{apikey}}",
+                "type": "string"
+            }
+        ]
+    },
+    "info": {
+        "name": "plex",
+        "description": "An Open API Spec for interacting with Plex.tv and Plex Servers",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Server",
+            "item": [
+                {
+                    "name": "Server Capabilities",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/",
+                            "host": [
+                                "{{baseUrl}}"
+                            ]
+                        },
+                        "description": "Server Capabilities"
+                    }
+                },
+                {
+                    "name": "Get Server Preferences",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:/prefs",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":",
+                                "prefs"
+                            ]
+                        },
+                        "description": "Get Server Preferences"
+                    }
+                },
+                {
+                    "name": "Get Available Clients",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/clients",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "clients"
+                            ]
+                        },
+                        "description": "Get Available Clients"
+                    }
+                },
+                {
+                    "name": "Get Devices",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/devices",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "devices"
+                            ]
+                        },
+                        "description": "Get Devices"
+                    }
+                },
+                {
+                    "name": "Get Server Identity",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/identity",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "identity"
+                            ]
+                        },
+                        "description": "Get Server Identity"
+                    }
+                },
+                {
+                    "name": "Get MyPlex Account",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/myplex/account",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "myplex",
+                                "account"
+                            ]
+                        },
+                        "description": "Returns MyPlex Account Information"
+                    }
+                },
+                {
+                    "name": "Get a Resized Photo",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/photo/:/transcode",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "photo",
+                                ":",
+                                "transcode"
+                            ],
+                            "query": [
+                                {
+                                    "key": "width",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "height",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "opacity",
+                                    "value": {
+                                        "Value": 100
+                                    },
+                                    "type": "integer"
+                                },
+                                {
+                                    "key": "blur",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "minSize",
+                                    "value": "1",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "upscale",
+                                    "value": "1",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "url",
+                                    "value": "/library/metadata/49564/thumb/1654258204",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "description": "Plex's Photo transcoder is used throughout the service to serve images at specified sizes.\n"
+                    }
+                },
+                {
+                    "name": "Get Server List",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/servers",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "servers"
+                            ]
+                        },
+                        "description": "Get Server List"
+                    }
+                }
+            ],
+            "description": "Operations against the Plex Media Server System.\n"
+        },
+        {
+            "name": "Media",
+            "item": [
+                {
+                    "name": "Mark Media Played",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:/scrobble",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":",
+                                "scrobble"
+                            ],
+                            "query": [
+                                {
+                                    "key": "key",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This will mark the provided media key as Played."
+                    }
+                },
+                {
+                    "name": "Mark Media Unplayed",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:/unscrobble",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":",
+                                "unscrobble"
+                            ],
+                            "query": [
+                                {
+                                    "key": "key",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This will mark the provided media key as Unplayed."
+                    }
+                },
+                {
+                    "name": "Update Media Play Progress",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:/progress",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":",
+                                "progress"
+                            ],
+                            "query": [
+                                {
+                                    "key": "key",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "state",
+                                    "value": "<value>",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "description": "This API command can be used to update the play progress of a media item.\n"
+                    }
+                }
+            ],
+            "description": "API Calls interacting with Plex Media Server Media\n"
+        },
+        {
+            "name": "Video",
+            "item": [
+                {
+                    "name": "Get the timeline for a media item",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/:/timeline",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ":",
+                                "timeline"
+                            ],
+                            "query": [
+                                {
+                                    "key": "ratingKey",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "key",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "state",
+                                    "value": "paused",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "hasMDE",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "duration",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "context",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "playQueueItemID",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "playBackTime",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "row",
+                                    "value": 1000000,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "Get the timeline for a media item"
+                    }
+                },
+                {
+                    "name": "Start Universal Transcode",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/video/:/transcode/universal/start.mpd",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "video",
+                                ":",
+                                "transcode",
+                                "universal",
+                                "start.mpd"
+                            ],
+                            "query": [
+                                {
+                                    "key": "hasMDE",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "path",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "mediaIndex",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "partIndex",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "protocol",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "fastSeek",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "directPlay",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "directStream",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "subtitleSize",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "subtites",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "audioBoost",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "mediaBufferSize",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "session",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addDebugOverlay",
+                                    "value": 1000000,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "autoAdjustQuality",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "Begin a Universal Transcode Session"
+                    }
+                }
+            ],
+            "description": "API Calls that perform operations with Plex Media Server Videos\n"
+        },
+        {
+            "name": "Activities",
+            "item": [
+                {
+                    "name": "Get Server Activities",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/activities",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "activities"
+                            ]
+                        },
+                        "description": "Get Server Activities"
+                    }
+                },
+                {
+                    "name": "Cancel Server Activities",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/activities/{activityUUID}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "activities",
+                                ":activityUUID"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "activityUUID",
+                                    "value": "<value>",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "description": "Cancel Server Activities"
+                    }
+                }
+            ],
+            "description": "Activities are awesome. They provide a way to monitor and control asynchronous operations on the server. In order to receive real-time updates for activities, a client would normally subscribe via either EventSource or Websocket endpoints.\nActivities are associated with HTTP replies via a special `X-Plex-Activity` header which contains the UUID of the activity.\nActivities are optional cancellable. If cancellable, they may be cancelled via the `DELETE` endpoint. Other details:\n- They can contain a `progress` (from 0 to 100) marking the percent completion of the activity.\n- They must contain an `type` which is used by clients to distinguish the specific activity.\n- They may contain a `Context` object with attributes which associate the activity with various specific entities (items, libraries, etc.)\n- The may contain a `Response` object which attributes which represent the result of the asynchronous operation.\n"
+        },
+        {
+            "name": "Butler",
+            "item": [
+                {
+                    "name": "Get Butler tasks",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/butler",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "butler"
+                            ]
+                        },
+                        "description": "Returns a list of butler tasks"
+                    }
+                },
+                {
+                    "name": "Start all Butler tasks",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/butler",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "butler"
+                            ]
+                        },
+                        "description": "This endpoint will attempt to start all Butler tasks that are enabled in the settings. Butler tasks normally run automatically during a time window configured on the server's Settings page but can be manually started using this endpoint. Tasks will run with the following criteria:\n1. Any tasks not scheduled to run on the current day will be skipped.\n2. If a task is configured to run at a random time during the configured window and we are outside that window, the task will start immediately.\n3. If a task is configured to run at a random time during the configured window and we are within that window, the task will be scheduled at a random time within the window.\n4. If we are outside the configured window, the task will start immediately.\n"
+                    }
+                },
+                {
+                    "name": "Stop all Butler tasks",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/butler",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "butler"
+                            ]
+                        },
+                        "description": "This endpoint will stop all currently running tasks and remove any scheduled tasks from the queue.\n"
+                    }
+                },
+                {
+                    "name": "Start a single Butler task",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/butler/{taskName}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "butler",
+                                ":taskName"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "taskName",
+                                    "value": "BackupDatabase",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint will attempt to start a single Butler task that is enabled in the settings. Butler tasks normally run automatically during a time window configured on the server's Settings page but can be manually started using this endpoint. Tasks will run with the following criteria:\n1. Any tasks not scheduled to run on the current day will be skipped.\n2. If a task is configured to run at a random time during the configured window and we are outside that window, the task will start immediately.\n3. If a task is configured to run at a random time during the configured window and we are within that window, the task will be scheduled at a random time within the window.\n4. If we are outside the configured window, the task will start immediately.\n"
+                    }
+                },
+                {
+                    "name": "Stop a single Butler task",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/butler/{taskName}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "butler",
+                                ":taskName"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "taskName",
+                                    "value": "CleanOldCacheFiles",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint will stop a currently running task by name, or remove it from the list of scheduled tasks if it exists. See the section above for a list of task names for this endpoint.\n"
+                    }
+                }
+            ],
+            "description": "Butler is the task manager of the Plex Media Server Ecosystem.\n"
+        },
+        {
+            "name": "Hubs",
+            "item": [
+                {
+                    "name": "Get Global Hubs",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/hubs",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "hubs"
+                            ],
+                            "query": [
+                                {
+                                    "key": "count",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "onlyTransient",
+                                    "value": "1",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "Get Global Hubs filtered by the parameters provided."
+                    }
+                },
+                {
+                    "name": "Get library specific hubs",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/hubs/sections/{sectionId}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "hubs",
+                                "sections",
+                                ":sectionId"
+                            ],
+                            "query": [
+                                {
+                                    "key": "count",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "onlyTransient",
+                                    "value": "1",
+                                    "type": "enum"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "sectionId",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint will return a list of library specific hubs\n"
+                    }
+                }
+            ],
+            "description": "Hubs are a structured two-dimensional container for media, generally represented by multiple horizontal rows.\n"
+        },
+        {
+            "name": "Search",
+            "item": [
+                {
+                    "name": "Perform a search",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/hubs/search",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "hubs",
+                                "search"
+                            ],
+                            "query": [
+                                {
+                                    "key": "query",
+                                    "value": "dylan",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "sectionId",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": {
+                                        "Value": 3
+                                    },
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint performs a search across all library sections, or a single section, and returns matches as hubs, split up by type. It performs spell checking, looks for partial matches, and orders the hubs based on quality of results. In addition, based on matches, it will return other related matches (e.g. for a genre match, it may return movies in that genre, or for an actor match, movies with that actor).\n\nIn the response's items, the following extra attributes are returned to further describe or disambiguate the result:\n\n- `reason`: The reason for the result, if not because of a direct search term match; can be either:\n  - `section`: There are multiple identical results from different sections.\n  - `originalTitle`: There was a search term match from the original title field (sometimes those can be very different or in a foreign language).\n  - `<hub identifier>`: If the reason for the result is due to a result in another hub, the source hub identifier is returned. For example, if the search is for \"dylan\" then Bob Dylan may be returned as an artist result, an a few of his albums returned as album results with a reason code of `artist` (the identifier of that particular hub). Or if the search is for \"arnold\", there might be movie results returned with a reason of `actor`\n- `reasonTitle`: The string associated with the reason code. For a section reason, it'll be the section name; For a hub identifier, it'll be a string associated with the match (e.g. `Arnold Schwarzenegger` for movies which were returned because the search was for \"arnold\").\n- `reasonID`: The ID of the item associated with the reason for the result. This might be a section ID, a tag ID, an artist ID, or a show ID.\n\nThis request is intended to be very fast, and called as the user types.\n"
+                    }
+                },
+                {
+                    "name": "Perform a voice search",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/hubs/search/voice",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "hubs",
+                                "search",
+                                "voice"
+                            ],
+                            "query": [
+                                {
+                                    "key": "query",
+                                    "value": "dead+poop",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "sectionId",
+                                    "value": 0,
+                                    "type": "number"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": {
+                                        "Value": 3
+                                    },
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint performs a search specifically tailored towards voice or other imprecise input which may work badly with the substring and spell-checking heuristics used by the `/hubs/search` endpoint. \nIt uses a [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) heuristic to search titles, and as such is much slower than the other search endpoint. \nWhenever possible, clients should limit the search to the appropriate type. \nResults, as well as their containing per-type hubs, contain a `distance` attribute which can be used to judge result quality.\n"
+                    }
+                },
+                {
+                    "name": "Get Search Results",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/search",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "search"
+                            ],
+                            "query": [
+                                {
+                                    "key": "query",
+                                    "value": "110",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "description": "This will search the database for the string provided."
+                    }
+                }
+            ],
+            "description": "API Calls that perform search operations with Plex Media Server\n"
+        },
+        {
+            "name": "Library",
+            "item": [
+                {
+                    "name": "Get Hash Value",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/hashes",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "hashes"
+                            ],
+                            "query": [
+                                {
+                                    "key": "url",
+                                    "value": "file://C:\\Image.png&type=13",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "type",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This resource returns hash values for local files"
+                    }
+                },
+                {
+                    "name": "Get Recently Added",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/recentlyAdded",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "recentlyAdded"
+                            ]
+                        },
+                        "description": "This endpoint will return the recently added content.\n"
+                    }
+                },
+                {
+                    "name": "Get All Libraries",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/sections",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "sections"
+                            ]
+                        },
+                        "description": "A library section (commonly referred to as just a library) is a collection of media. \nLibraries are typed, and depending on their type provide either a flat or a hierarchical view of the media. \nFor example, a music library has an artist > albums > tracks structure, whereas a movie library is flat.\n\nLibraries have features beyond just being a collection of media; for starters, they include information about supported types, filters and sorts. \nThis allows a client to provide a rich interface around the media (e.g. allow sorting movies by release year).\n"
+                    }
+                },
+                {
+                    "name": "Get Library Details",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/sections/{sectionId}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "sections",
+                                ":sectionId"
+                            ],
+                            "query": [
+                                {
+                                    "key": "includeDetails",
+                                    "value": {
+                                        "Value": 0
+                                    },
+                                    "type": "enum"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "sectionId",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "## Library Details Endpoint\n\nThis endpoint provides comprehensive details about the library, focusing on organizational aspects rather than the content itself.   \n\nThe details include:\n\n### Directories\nOrganized into three categories:\n\n- **Primary Directories**: \n  - Used in some clients for quick access to media subsets (e.g., \"All\", \"On Deck\").\n  - Most can be replicated via media queries.\n  - Customizable by users.\n\n- **Secondary Directories**:\n  - Marked with `secondary=\"1\"`.\n  - Used in older clients for structured navigation.\n\n- **Special Directories**:\n  - Includes a \"By Folder\" entry for filesystem-based browsing.\n  - Contains an obsolete `search=\"1\"` entry for on-the-fly search dialog creation.\n\n### Types\nEach type in the library comes with a set of filters and sorts, aiding in building dynamic media controls:\n\n- **Type Object Attributes**:\n  - `key`: Endpoint for the media list of this type.\n  - `type`: Metadata type (if standard Plex type).\n  - `title`: Title for this content type (e.g., \"Movies\").\n\n- **Filter Objects**:\n  - Subset of the media query language.\n  - Attributes include `filter` (name), `filterType` (data type), `key` (endpoint for value range), and `title`.\n\n- **Sort Objects**:\n  - Description of sort fields.\n  - Attributes include `defaultDirection` (asc/desc), `descKey` and `key` (sort parameters), and `title`.\n\n> **Note**: Filters and sorts are optional; without them, no filtering controls are rendered.\n"
+                    }
+                },
+                {
+                    "name": "Delete Library Section",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/sections/{sectionId}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "sections",
+                                ":sectionId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "sectionId",
+                                    "value": 1000000,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "Delate a library using a specific section"
+                    }
+                },
+                {
+                    "name": "Get Library Items",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/sections/{sectionId}/{tag}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "sections",
+                                ":sectionId",
+                                ":tag"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "sectionId",
+                                    "value": 473608,
+                                    "type": "integer"
+                                },
+                                {
+                                    "key": "tag",
+                                    "value": "rating",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "Fetches details from a specific section of the library identified by a section key and a tag. The tag parameter accepts the following values:\n- `all`: All items in the section.\n- `unwatched`: Items that have not been played.\n- `newest`: Items that are recently released.\n- `recentlyAdded`: Items that are recently added to the library.\n- `recentlyViewed`: Items that were recently viewed.\n- `onDeck`: Items to continue watching.\n- `collection`: Items categorized by collection.\n- `edition`: Items categorized by edition.\n- `genre`: Items categorized by genre.\n- `year`: Items categorized by year of release.\n- `decade`: Items categorized by decade.\n- `director`: Items categorized by director.\n- `actor`: Items categorized by starring actor.\n- `country`: Items categorized by country of origin.\n- `contentRating`: Items categorized by content rating.\n- `rating`: Items categorized by rating.\n- `resolution`: Items categorized by resolution.\n- `firstCharacter`: Items categorized by the first letter.\n- `folder`: Items categorized by folder.\n"
+                    }
+                },
+                {
+                    "name": "Refresh Library",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/sections/{sectionId}/refresh",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "sections",
+                                ":sectionId",
+                                "refresh"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "sectionId",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint Refreshes the library.\n"
+                    }
+                },
+                {
+                    "name": "Search Library",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/sections/{sectionId}/search",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "sections",
+                                ":sectionId",
+                                "search"
+                            ],
+                            "query": [
+                                {
+                                    "key": "type",
+                                    "value": "3",
+                                    "type": "enum"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "sectionId",
+                                    "value": 461479,
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "description": "Search for content within a specific section of the library.\n\n### Types\nEach type in the library comes with a set of filters and sorts, aiding in building dynamic media controls:\n\n- **Type Object Attributes**:\n  - `type`: Metadata type (if standard Plex type).  \n  - `title`: Title for this content type (e.g., \"Movies\").\n\n- **Filter Objects**:\n  - Subset of the media query language.\n  - Attributes include `filter` (name), `filterType` (data type), `key` (endpoint for value range), and `title`.\n\n- **Sort Objects**:\n  - Description of sort fields.\n  - Attributes include `defaultDirection` (asc/desc), `descKey` and `key` (sort parameters), and `title`.\n\n> **Note**: Filters and sorts are optional; without them, no filtering controls are rendered.\n"
+                    }
+                },
+                {
+                    "name": "Get Items Metadata",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/metadata/{ratingKey}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "metadata",
+                                ":ratingKey"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "ratingKey",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint will return the metadata of a library item specified with the ratingKey.\n"
+                    }
+                },
+                {
+                    "name": "Get Items Children",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/metadata/{ratingKey}/children",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "metadata",
+                                ":ratingKey",
+                                "children"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "ratingKey",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint will return the children of of a library item specified with the ratingKey.\n"
+                    }
+                },
+                {
+                    "name": "Get On Deck",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/library/onDeck",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "library",
+                                "onDeck"
+                            ]
+                        },
+                        "description": "This endpoint will return the on deck content.\n"
+                    }
+                }
+            ],
+            "description": "API Calls interacting with Plex Media Server Libraries\n"
+        },
+        {
+            "name": "Log",
+            "item": [
+                {
+                    "name": "Logging a single line message.",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/log",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "log"
+                            ],
+                            "query": [
+                                {
+                                    "key": "level",
+                                    "value": "0",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "message",
+                                    "value": "Test log message",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "source",
+                                    "value": "Postman",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint will write a single-line log message, including a level and source to the main Plex Media Server log.\n"
+                    }
+                },
+                {
+                    "name": "Logging a multi-line message",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "text/plain",
+                                "type": "string"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/log",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "log"
+                            ]
+                        },
+                        "description": "This endpoint allows for the batch addition of log entries to the main Plex Media Server log.  \nIt accepts a text/plain request body, where each line represents a distinct log entry.  \nEach log entry consists of URL-encoded key-value pairs, specifying log attributes such as 'level', 'message', and 'source'.  \n\nLog entries are separated by a newline character (`\\n`).  \nEach entry's parameters should be URL-encoded to ensure accurate parsing and handling of special characters.  \nThis method is efficient for logging multiple entries in a single API call, reducing the overhead of multiple individual requests.  \n\nThe 'level' parameter specifies the log entry's severity or importance, with the following integer values:\n- `0`: Error - Critical issues that require immediate attention.\n- `1`: Warning - Important events that are not critical but may indicate potential issues.\n- `2`: Info - General informational messages about system operation.\n- `3`: Debug - Detailed information useful for debugging purposes.\n- `4`: Verbose - Highly detailed diagnostic information for in-depth analysis.\n\nThe 'message' parameter contains the log text, and 'source' identifies the log message's origin (e.g., an application name or module).\n\nExample of a single log entry format:\n`level=4&message=Sample%20log%20entry&source=applicationName`\n\nEnsure each parameter is properly URL-encoded to avoid interpretation issues.\n"
+                    }
+                },
+                {
+                    "name": "Enabling Papertrail",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/log/networked",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "log",
+                                "networked"
+                            ]
+                        },
+                        "description": "This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail networked logging site for a period of time.\n"
+                    }
+                }
+            ],
+            "description": "Submit logs to the Log Handler for Plex Media Server\n"
+        },
+        {
+            "name": "Plex",
+            "item": [
+                {
+                    "name": "Get a Pin",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "X-Plex-Client-Identifier",
+                                "value": "{{X-Plex-Client-Identifier}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "https://plex.tv/api/v2/pins",
+                            "protocol": "https",
+                            "host": [
+                                "plex",
+                                "tv/api/v2"
+                            ],
+                            "path": [
+                                "pins"
+                            ],
+                            "query": [
+                                {
+                                    "key": "strong",
+                                    "value": {
+                                        "Value": false
+                                    },
+                                    "type": "boolean"
+                                }
+                            ]
+                        },
+                        "description": "Retrieve a Pin from Plex.tv for authentication flows"
+                    }
+                },
+                {
+                    "name": "Get Access Token",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "X-Plex-Client-Identifier",
+                                "value": "{{X-Plex-Client-Identifier}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "https://plex.tv/api/v2/pins/{pinID}",
+                            "protocol": "https",
+                            "host": [
+                                "plex",
+                                "tv/api/v2"
+                            ],
+                            "path": [
+                                "pins",
+                                ":pinID"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "pinID",
+                                    "value": "<value>",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "description": "Retrieve an Access Token from Plex.tv after the Pin has already been authenticated"
+                    }
+                }
+            ],
+            "description": "API Calls that perform operations directly against https://Plex.tv\n"
+        },
+        {
+            "name": "Playlists",
+            "item": [
+                {
+                    "name": "Create a Playlist",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists"
+                            ],
+                            "query": [
+                                {
+                                    "key": "title",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "type",
+                                    "value": "photo",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "smart",
+                                    "value": "1",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "uri",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "playQueueID",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "Create a new playlist. By default the playlist is blank. To create a playlist along with a first item, pass:\n- `uri` - The content URI for what we're playing (e.g. `server://1234/com.plexapp.plugins.library/library/metadata/1`).\n- `playQueueID` - To create a playlist from an existing play queue.\n"
+                    }
+                },
+                {
+                    "name": "Get All Playlists",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists"
+                            ],
+                            "query": [
+                                {
+                                    "key": "playlistType",
+                                    "value": "audio",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "smart",
+                                    "value": "1",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "Get All Playlists given the specified filters."
+                    }
+                },
+                {
+                    "name": "Retrieve Playlist",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists/{playlistID}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists",
+                                ":playlistID"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "playlistID",
+                                    "value": 1000000,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "Gets detailed metadata for a playlist. A playlist for many purposes (rating, editing metadata, tagging), can be treated like a regular metadata item:\nSmart playlist details contain the `content` attribute. This is the content URI for the generator. This can then be parsed by a client to provide smart playlist editing.\n"
+                    }
+                },
+                {
+                    "name": "Deletes a Playlist",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists/{playlistID}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists",
+                                ":playlistID"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "playlistID",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint will delete a playlist\n"
+                    }
+                },
+                {
+                    "name": "Update a Playlist",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists/{playlistID}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists",
+                                ":playlistID"
+                            ],
+                            "query": [
+                                {
+                                    "key": "title",
+                                    "value": "<value>",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "summary",
+                                    "value": "<value>",
+                                    "type": "string"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "playlistID",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "From PMS version 1.9.1 clients can also edit playlist metadata using this endpoint as they would via `PUT /library/metadata/{playlistID}`\n"
+                    }
+                },
+                {
+                    "name": "Retrieve Playlist Contents",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists/{playlistID}/items",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists",
+                                ":playlistID",
+                                "items"
+                            ],
+                            "query": [
+                                {
+                                    "key": "type",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "playlistID",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "Gets the contents of a playlist. Should be paged by clients via standard mechanisms. \nBy default leaves are returned (e.g. episodes, movies). In order to return other types you can use the `type` parameter. \nFor example, you could use this to display a list of recently added albums vis a smart playlist. \nNote that for dumb playlists, items have a `playlistItemID` attribute which is used for deleting or moving items.\n"
+                    }
+                },
+                {
+                    "name": "Delete Playlist Contents",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists/{playlistID}/items",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists",
+                                ":playlistID",
+                                "items"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "playlistID",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "Clears a playlist, only works with dumb playlists. Returns the playlist.\n"
+                    }
+                },
+                {
+                    "name": "Adding to a Playlist",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists/{playlistID}/items",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists",
+                                ":playlistID",
+                                "items"
+                            ],
+                            "query": [
+                                {
+                                    "key": "uri",
+                                    "value": "server://12345/com.plexapp.plugins.library/library/metadata/1",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "playQueueID",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "playlistID",
+                                    "value": 0,
+                                    "type": "number"
+                                }
+                            ]
+                        },
+                        "description": "Adds a generator to a playlist, same parameters as the POST to create. With a dumb playlist, this adds the specified items to the playlist.\nWith a smart playlist, passing a new `uri` parameter replaces the rules for the playlist. Returns the playlist.\n"
+                    }
+                },
+                {
+                    "name": "Upload Playlist",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/playlists/upload",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "playlists",
+                                "upload"
+                            ],
+                            "query": [
+                                {
+                                    "key": "path",
+                                    "value": "/home/barkley/playlist.m3u",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "force",
+                                    "value": "1",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "Imports m3u playlists by passing a path on the server to scan for m3u-formatted playlist files, or a path to a single playlist file.\n"
+                    }
+                }
+            ],
+            "description": "Playlists are ordered collections of media. They can be dumb (just a list of media) or smart (based on a media query, such as \"all albums from 2017\"). \nThey can be organized in (optionally nesting) folders.\nRetrieving a playlist, or its items, will trigger a refresh of its metadata. \nThis may cause the duration and number of items to change.\n"
+        },
+        {
+            "name": "Authentication",
+            "item": [
+                {
+                    "name": "Get a Transient Token.",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/security/token",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "security",
+                                "token"
+                            ],
+                            "query": [
+                                {
+                                    "key": "type",
+                                    "value": "delegation",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "scope",
+                                    "value": "all",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint provides the caller with a temporary token with the same access level as the caller's token. These tokens are valid for up to 48 hours and are destroyed if the server instance is restarted.\n"
+                    }
+                },
+                {
+                    "name": "Get Source Connection Information",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/security/resources",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "security",
+                                "resources"
+                            ],
+                            "query": [
+                                {
+                                    "key": "source",
+                                    "value": "provider://provider-identifier",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "description": "If a caller requires connection details and a transient token for a source that is known to the server, for example a cloud media provider or shared PMS, then this endpoint can be called. This endpoint is only accessible with either an admin token or a valid transient token generated from an admin token.\nNote: requires Plex Media Server >= 1.15.4.\n"
+                    }
+                }
+            ],
+            "description": "API Calls regarding authentication for Plex Media Server\n"
+        },
+        {
+            "name": "Statistics",
+            "item": [
+                {
+                    "name": "Get Media Statistics",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/statistics/media",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "statistics",
+                                "media"
+                            ],
+                            "query": [
+                                {
+                                    "key": "Timespan",
+                                    "value": 456150,
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "description": "This will return the media statistics for the server"
+                    }
+                }
+            ],
+            "description": "API Calls that perform operations with Plex Media Server Statistics\n"
+        },
+        {
+            "name": "Sessions",
+            "item": [
+                {
+                    "name": "Get Active Sessions",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/status/sessions",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "status",
+                                "sessions"
+                            ]
+                        },
+                        "description": "This will retrieve the \"Now Playing\" Information of the PMS."
+                    }
+                },
+                {
+                    "name": "Get Session History",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/status/sessions/history/all",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "status",
+                                "sessions",
+                                "history",
+                                "all"
+                            ]
+                        },
+                        "description": "This will Retrieve a listing of all history views."
+                    }
+                },
+                {
+                    "name": "Get Transcode Sessions",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/transcode/sessions",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "transcode",
+                                "sessions"
+                            ]
+                        },
+                        "description": "Get Transcode Sessions"
+                    }
+                },
+                {
+                    "name": "Stop a Transcode Session",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/transcode/sessions/{sessionKey}",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "transcode",
+                                "sessions",
+                                ":sessionKey"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "sessionKey",
+                                    "value": "zz7llzqlx8w9vnrsbnwhbmep",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "description": "Stop a Transcode Session"
+                    }
+                }
+            ],
+            "description": "API Calls that perform search operations with Plex Media Server Sessions\n"
+        },
+        {
+            "name": "Updater",
+            "item": [
+                {
+                    "name": "Querying status of updates",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/updater/status",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "updater",
+                                "status"
+                            ]
+                        },
+                        "description": "Querying status of updates"
+                    }
+                },
+                {
+                    "name": "Checking for updates",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/updater/check",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "updater",
+                                "check"
+                            ],
+                            "query": [
+                                {
+                                    "key": "download",
+                                    "value": "0",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "Checking for updates"
+                    }
+                },
+                {
+                    "name": "Apply Updates",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/updater/apply",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "updater",
+                                "apply"
+                            ],
+                            "query": [
+                                {
+                                    "key": "tonight",
+                                    "value": "1",
+                                    "type": "enum"
+                                },
+                                {
+                                    "key": "skip",
+                                    "value": "0",
+                                    "type": "enum"
+                                }
+                            ]
+                        },
+                        "description": "Note that these two parameters are effectively mutually exclusive. The `tonight` parameter takes precedence and `skip` will be ignored if `tonight` is also passed\n"
+                    }
+                }
+            ],
+            "description": "This describes the API for searching and applying updates to the Plex Media Server.\nUpdates to the status can be observed via the Event API.\n"
+        }
+    ],
+    "variable": [
+        {
+            "key": "X-Plex-Client-Identifier",
+            "value": "Postman"
+        },
+        {
+            "key": "baseUrl",
+            "value": "{{protocol}}://{{ip}}:{{port}}"
+        },
+        {
+            "key": "protocol",
+            "value": "http"
+        },
+        {
+            "key": "ip",
+            "value": "10.10.10.47"
+        },
+        {
+            "key": "port",
+            "value": "32400"
+        }
+    ]
+}
